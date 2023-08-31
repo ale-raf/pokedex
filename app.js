@@ -1,5 +1,6 @@
 // import { globalPokedex } from "./data.js";
 const searchResult = document.querySelector(".pokedex-container");
+const form = document.querySelector(".form");
 const searchInput = document.getElementById("search");
 
 let globalPokedex;
@@ -48,6 +49,18 @@ searchInput.addEventListener("input", catchSomePokemons);
 function catchSomePokemons(e) {
   searchResult.innerHTML = "";
   const searchPokemon = e.target.value.toLowerCase();
+  const filteredPokedex = globalPokedex.filter((pokemon) =>
+    pokemon.name.fr.toLowerCase().includes(searchPokemon)
+  );
+  createPokemonCard(filteredPokedex);
+}
+
+form.addEventListener("submit", findPokemon);
+
+function findPokemon(e) {
+  e.preventDefault();
+  searchResult.innerHTML = "";
+  const searchPokemon = searchInput.value.toLowerCase();
   const filteredPokedex = globalPokedex.filter((pokemon) =>
     pokemon.name.fr.toLowerCase().includes(searchPokemon)
   );

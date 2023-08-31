@@ -52,6 +52,7 @@ h1 {
 .pokedex-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  margin-bottom: 50px;
 }
 .card-wrapper {
   width: 200px;
